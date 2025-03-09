@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
-using UnityEngine.UI;  // Keep this to use Unity's UI Image
-// using UnityEngine.UIElements;  // Remove this to avoid the ambiguity
+using UnityEngine.UI;  // Make sure we are using the correct UI Image
+
+// Remove using UnityEngine.UIElements;
 
 public class combinationlock : MonoBehaviour
 {
@@ -12,15 +13,27 @@ public class combinationlock : MonoBehaviour
 
     [SerializeField] XrButtoninteractable[] comboButtons;
 
-    [SerializeField] Image lockedPanel;  // This will now refer to UnityEngine.UI.Image
+    [SerializeField] TMP_Text infoText;
+
+    private const string startString = "Enter 3 Digit Combo";
+
+    private const string resetString = "Enter 3 Digits To Reset Combo";
+
+    [SerializeField] Image lockedPanel;  // This now specifically refers to UnityEngine.UI.Image
 
     [SerializeField] Color unlockedColor;
+
+    [SerializeField] Color lockedColor;
 
     [SerializeField] TMP_Text lockedText;
 
     private const string unlockedString = "unlocked";
 
+    private const string lockedString = "locked";
+
     [SerializeField] bool isLocked;
+
+    [SerializeField] bool isResettable;
 
     [SerializeField] int[] comboValues = new int[3];
 
@@ -29,6 +42,8 @@ public class combinationlock : MonoBehaviour
     private int maxButtonPresses;
 
     private int buttonPresses;
+
+    private bool resetCombo;
 
     void Start()
     {
@@ -76,6 +91,13 @@ public class combinationlock : MonoBehaviour
 
     private void CheckCombo()
     {
+        if (resetCombo)
+        {
+            resetCombo = false;
+            LockCombo();
+            return;
+        }
+
         int matches = 0;
 
         for (int i = 0; i < maxButtonPresses; i++)
@@ -88,14 +110,47 @@ public class combinationlock : MonoBehaviour
 
         if (matches == maxButtonPresses)
         {
-            isLocked = false;
-            lockedPanel.color = unlockedColor;
-            lockedText.text = unlockedString;
+            UnlockCombo();
         }
         else
         {
             ResetUserValues();
         }
+    }
+
+    private void UnlockCombo()
+    {
+        isLocked = false;
+        lockedPanel.color = unlockedColor;
+        lockedText.text = unlockedString;
+
+        if (isResettable)
+        {
+            ResetCombo();
+        }
+    }
+
+    private void LockCombo()
+    {
+        isLocked = true;
+        lockedPanel.color = lockedColor;
+        lockedText.text = lockedString;
+        infoText.text = startString;
+
+        // Save the current combo to comboValues when locking
+        for (int i = 0; i < maxButtonPresses; i++)
+        {
+            comboValues[i] = inputValues[i];
+        }
+
+        ResetUserValues();
+    }
+
+    private void ResetCombo()
+    {
+        infoText.text = resetString;
+        ResetUserValues();
+        resetCombo = true;
     }
 
     private void ResetUserValues()
