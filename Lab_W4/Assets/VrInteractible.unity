@@ -12476,10 +12476,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonImage: {fileID: 761790042}
-  buttonColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
-  - {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  highlightedColor: {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
+  pressedColor: {r: 0.5529412, g: 0.07058824, b: 0.07058824, a: 1}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &761790041
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29887,10 +29887,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonImage: {fileID: 1811434695}
-  buttonColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
-  - {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  highlightedColor: {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
+  pressedColor: {r: 0.5529412, g: 0.07058824, b: 0.07058824, a: 1}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &1811434694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32414,10 +32414,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonImage: {fileID: 1971499619}
-  buttonColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
-  - {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1971499617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33868,10 +33868,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buttonImage: {fileID: 2056070589}
-  buttonColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
-  - {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  highlightedColor: {r: 0.8392157, g: 0.03529412, b: 0.03529412, a: 1}
+  pressedColor: {r: 0.5529412, g: 0.07058824, b: 0.07058824, a: 1}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &2056070588
 BoxCollider:
   m_ObjectHideFlags: 0
