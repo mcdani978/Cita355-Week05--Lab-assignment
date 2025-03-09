@@ -8,7 +8,7 @@ public class XrButtoninteractable : XRSimpleInteractable
 {
     [SerializeField] Image buttonImage;
 
- 
+    [SerializeField] Color[] buttonColors = new Color[4];
 
     [SerializeField] private Color normalColor;
 
@@ -18,11 +18,14 @@ public class XrButtoninteractable : XRSimpleInteractable
 
     [SerializeField] private Color selectedColor;
 
-    private bool isPressed;
+    [SerializeField]private bool isPressed;
     // Start is called before the first frame update
     void Start()
     {
-
+        normalColor = buttonColors[0];
+        highlightedColor = buttonColors[1];
+        pressedColor = buttonColors[2];
+        selectedColor = buttonColors[3];
         ResetColor();
     }
 
